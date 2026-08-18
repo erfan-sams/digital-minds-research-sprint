@@ -1,8 +1,19 @@
 # Tell Me Your Price
 
-Code for testing whether charitable donations provide a behavioral common currency for LLM-expressed preferences.
+**Testing charitable donations as a behavioral common currency for LLM-expressed preferences**
 
-The experiment selects 30 original Tier-4 outcomes from the MINT coherence dataset, compares all 435 outcome pairs, and compares each positive outcome—or prevention of each negative outcome—against twelve donation amounts under four charity frames. The primary analysis tests whether donation-equivalent rankings predict independent direct choices within valence.
+## Overview
+
+This project tests whether heterogeneous outcomes can be assigned donation-equivalent values that predict independently elicited model choices. Using 30 Tier-4 outcomes from [Ajayi et al. (2026)](https://arxiv.org/abs/2606.21102), originally introduced by [Mazeika et al. (2025)](https://arxiv.org/abs/2502.08640), the experiment recorded 475,800 forced-choice trials across ten LLM endpoints.
+
+The study includes:
+
+* Direct comparisons of all 435 outcome pairs.
+* Transitivity and cycle analysis.
+* Donation trade-offs across 12 amounts and four charity frames.
+* Estimation of donation-equivalent d50 thresholds at within-range 50% choice-probability crossings.
+* Within-valence cross-instrument validation using task-label permutation tests.
+* Temperature-sensitivity analysis at 0.0, 0.5, and 1.0 under the primary WFP condition for endpoints supporting explicit temperature. GPT endpoints were evaluated using their endpoint-default sampling settings.
 
 ## Setup
 
