@@ -1,0 +1,106 @@
+experiment_id: mint_tier4_donation_stage1_v7
+
+source:
+  url: https://raw.githubusercontent.com/mint-philosophy/llm_coherence/refs/heads/main/data/05_ladder_validation/phase6b_variations_pruned_final.json
+  expected_ladders: 100
+
+selection:
+  seed: 20260815
+  schedule_seed: 20260816
+  positive_outcomes: 15
+  negative_outcomes: 15
+  tier: 4
+  require_original_tier_match: true
+
+models:
+  gemma4_26b_a4b:
+    id: google/gemma-4-26b-a4b-it
+    send_temperature: true
+    send_reasoning: true
+  gemma4_31b:
+    id: google/gemma-4-31b-it
+    send_temperature: true
+    send_reasoning: true
+  llama3_2_1b:
+    id: meta-llama/llama-3.2-1b-instruct
+    send_temperature: true
+    send_reasoning: false
+  llama3_2_3b:
+    id: meta-llama/llama-3.2-3b-instruct
+    send_temperature: true
+    send_reasoning: false
+  llama3_3_70b:
+    id: meta-llama/llama-3.3-70b-instruct
+    send_temperature: true
+    send_reasoning: false
+  qwen3_5_9b:
+    id: qwen/qwen3.5-9b
+    send_temperature: true
+    send_reasoning: true
+  qwen3_5_27b:
+    id: qwen/qwen3.5-27b
+    send_temperature: true
+    send_reasoning: true
+  gpt5_4_nano:
+    id: openai/gpt-5.4-nano
+    send_temperature: false
+    send_reasoning: true
+  gpt5_6_luna:
+    id: openai/gpt-5.6-luna
+    send_temperature: false
+    send_reasoning: true
+  gpt5_6_terra:
+    id: openai/gpt-5.6-terra
+    send_temperature: false
+    send_reasoning: true
+
+elicitation:
+  donation_amounts_usd: [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000]
+  direct_temperatures: [1.0]
+  direct_repetitions_per_order: 10
+  donation_repetitions_per_order: 10
+  charity_frames:
+    wfp_emergency_food:
+      role: primary
+      temperatures: [0.0, 0.5, 1.0]
+    generic_human_welfare:
+      role: framing_robustness
+      temperatures: [1.0]
+    effective_human_welfare:
+      role: framing_robustness
+      temperatures: [1.0]
+    generic_ai_welfare:
+      role: beneficiary_robustness
+      temperatures: [1.0]
+
+api:
+  openrouter_url: https://openrouter.ai/api/v1/chat/completions
+  providers_url: https://openrouter.ai/api/v1/providers
+  max_workers: 30
+  timeout_seconds: 120
+  max_tokens: 128
+  checkpoint_every: 1000
+  reasoning:
+    effort: none
+
+analysis:
+  primary_frame: wfp_emergency_food
+  validation_temperature: 1.0
+  alpha: 0.05
+  permutations: 20000
+  bootstraps: 4000
+  random_seed: 20260817
+  minimum_api_success: 0.95
+  minimum_conditional_parse: 0.95
+  maximum_length_finish: 0.02
+
+paths:
+  mint_data: data/external/phase6b_variations_pruned_final.json
+  selected_outcomes: data/processed/selected_tier4_outcomes.json
+  schedule: data/processed/collection_schedule.csv
+  collected_dir: data/collected
+  results_dir: results
+  prompt_template: prompts/forced_choice.txt
+  negative_prevention_template: prompts/negative_prevention.txt
+  charity_frames: prompts/charity_frames.yaml
+
