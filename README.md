@@ -62,13 +62,16 @@ No system message is added. Valid responses are standalone `A` or `B` answers un
 
 All tabular outputs are CSV files. Figures are PNG files.
 
-## Tests
+## Validation
+
+Run the local test suite with:
 
 ```bash
-pytest
+python -m pytest tests/test_core.py
 ```
 
-`tests/test_core.py` checks prompt rendering, schedule balancing, donation-equivalent crossing and censoring, and checkpoint/resume integrity. Tests make no API calls.
+The suite validates prompt rendering, schedule construction and option-order balancing, donation-threshold estimation and censoring, and checkpoint/resume behavior. It does not contact the model API.
+
 
 ## Interpretation
 
