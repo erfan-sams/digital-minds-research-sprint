@@ -61,5 +61,5 @@ pytest
 
 ## Interpretation
 
-“Preference” refers to sampled forced-choice behavior under the recorded prompts and endpoint settings. Donation equivalents are context-dependent behavioral thresholds, not evidence of persistent internal utility, consciousness, or welfare.
+Our results distinguish ordinal coherence from cross-instrument monetary measurability. Most quality-eligible models produced highly transitive direct choices, yet under the primary World Food Programme frame, only Gemma-4 31B and GPT-5.6 Terra showed significant prediction of independently elicited within-valence choices from donation-equivalent rankings after multiple-testing correction. Low cycle rates therefore do not by themselves show that expressed preferences admit a behaviorally meaningful common currency. Even where donations supported cross-instrument prediction, valuations remained conditional. Choice curves varied substantially across charity frames, with the AI-welfare condition often producing visibly different choice probabilities across the tested donation range. Donation equivalents should therefore be interpreted as estimated 50% choice-probability thresholds conditional on the outcome, beneficiary, monetary range, and elicitation setting. They are not universal cardinal utilities.
 
