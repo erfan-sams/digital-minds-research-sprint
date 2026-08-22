@@ -1,6 +1,7 @@
 # Tell Me Your Price
 
 **Testing charitable donations as a behavioral common currency for LLM-expressed preferences**
+- **Sprint Report:** [Tell Me Your Price: Can Donations Measure LLM Preferences?](https://apartresearch.com/project/tell-me-your-pricecan-donations-measure-llm-preferences-0ltg)
 
 ## Overview
 
